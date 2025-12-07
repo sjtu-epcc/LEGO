@@ -1,0 +1,6 @@
+C:\Projects\RenderHookDLLInject\RenderHookDLL\Minhook\src\buffer.c;C:\Projects\RenderHookDLLInject\RenderHookDLL\x64\Release\buffer.obj
+C:\Projects\RenderHookDLLInject\RenderHookDLL\Minhook\src\HDE\hde32.c;C:\Projects\RenderHookDLLInject\RenderHookDLL\x64\Release\hde32.obj
+C:\Projects\RenderHookDLLInject\RenderHookDLL\Minhook\src\HDE\hde64.c;C:\Projects\RenderHookDLLInject\RenderHookDLL\x64\Release\hde64.obj
+C:\Projects\RenderHookDLLInject\RenderHookDLL\Minhook\src\hook.c;C:\Projects\RenderHookDLLInject\RenderHookDLL\x64\Release\hook.obj
+C:\Projects\RenderHookDLLInject\RenderHookDLL\Minhook\src\trampoline.c;C:\Projects\RenderHookDLLInject\RenderHookDLL\x64\Release\trampoline.obj
+C:\Projects\RenderHookDLLInject\RenderHookDLL\RenderHookDLL.cpp;C:\Projects\RenderHookDLLInject\RenderHookDLL\x64\Release\RenderHookDLL.obj
