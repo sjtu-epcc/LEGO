@@ -14,7 +14,7 @@
 
 import os
 from typing import TYPE_CHECKING, Any, Optional, TypedDict
-import importlib
+import sys
 
 import torch
 from transformers import (
@@ -196,7 +196,31 @@ def load_model(
             elif type(config) in AutoModelForTextToWaveform._model_mapping.keys():  # audio hack for qwen omni
                 load_class = AutoModelForTextToWaveform
             else:
-                load_class = AutoModelForCausalLM
+                model_type = getattr(config, "model_type", None)
+
+                model_dir = model_args.model_name_or_path
+                if model_dir not in sys.path:
+                    sys.path.insert(0, model_dir)
+
+                local_class = None
+                try:
+                    if model_type == "llama":
+                        from modeling_llama import LlamaForCausalLM
+                        local_class = LlamaForCausalLM
+
+                    elif model_type == "mistral":
+                        from modeling_mistral import MistralForCausalLM
+                        local_class = MistralForCausalLM
+
+                except Exception as e:
+                    logger.info_rank0(f"[LOCAL MODEL] No local custom {model_type} model found: {e}")
+
+                if local_class is not None:
+                    load_class = local_class
+                    logger.info_rank0(f"[LOCAL MODEL] Using local {model_type} implementation from {model_dir}")
+                else:
+                    load_class = AutoModelForCausalLM
+                    logger.info_rank0(f"[LOCAL MODEL] Falling back to AutoModelForCausalLM")
 
             if model_args.train_from_scratch:
                 model = load_class.from_config(config, trust_remote_code=model_args.trust_remote_code)
@@ -236,7 +260,7 @@ def load_model(
 
         model.eval()
     else:
-        _disable_grads_for_skipped_layers(model, config)
+        _disable_grads_for_skipped_layers(model, config)    
         model.train()
 
     # Borrowing the kernel plugins ability of v1 to temporarily apply the NPU fusion operator to v0,

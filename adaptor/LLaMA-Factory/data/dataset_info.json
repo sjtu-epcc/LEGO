@@ -316,7 +316,7 @@
     }
   },
   "web_instruct": {
-    "hf_hub_url": "TIGER-Lab/WebInstructSub",
+    "hf_hub_url": "/state/partition/model/TIGER-Lab_WebInstructSub",
     "columns": {
       "prompt": "question",
       "response": "answer"

@@ -1,5 +1,5 @@
 ### model
-model_name_or_path: /state/partition/model/kehanlu_llama-3.2-8B-Instruct
+model_name_or_path: /state/partition/model/mistralai_Mistral-7B-Instruct-v0.1
 trust_remote_code: true
 
 ### skip
@@ -14,7 +14,7 @@ deepspeed: examples/deepspeed/ds_z3_config.json  # choices: [ds_z0_config.json, 
 
 ### dataset
 dataset: web_instruct
-template: llama3
+template: mistral
 cutoff_len: 2048
 max_samples: 300000
 overwrite_cache: true
@@ -22,7 +22,7 @@ preprocessing_num_workers: 16
 dataloader_num_workers: 4
 
 ### output
-output_dir: saves/llama3-8b/full/sft/llama3.2-8B-Instruct-skip26_29
+output_dir: saves/llama3-8b/full/sft/mistral-7B-Instruct-skip26_29
 logging_steps: 5
 save_steps: 9000
 plot_loss: true
