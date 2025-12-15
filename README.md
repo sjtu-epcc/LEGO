@@ -4,7 +4,7 @@ LEGO: Supporting LLM-enhanced Games with One Gaming GPU [HPCA 2026]
 # README (Simplified Reproduction Guide)
 
 This project contains four major components required to reproduce the experiments in LEGO.
-Because real-world environments (UE4 version, GPU count, model paths, dataset paths) differ among users, **the provided scripts are templates** — users are expected to **modify paths and configuration parameters inside each `.sh` script** according to their system.
+Because real-world environments (UE4 version, GPU count, model paths, dataset paths) differ among users, **the provided scripts are templates** — users are expected to **modify paths and configuration parameters inside each `.sh` (Linux) or `.bat` (Windows) script** according to their system.
 
 Below we outline what each directory does and how to run the experiments described in Section VII of the paper.
 
@@ -48,7 +48,7 @@ scheduler/
 3. We provide:
 
 ```
-configure_scheduler.sh
+configure_scheduler.bat (Windows)
 ```
 
 This script **automates code replacement inside UE4**, but users must modify the UE4 installation path inside the script.
@@ -56,7 +56,7 @@ This script **automates code replacement inside UE4**, but users must modify the
 4. To simulate game workloads:
 
 ```
-run_scheduler.sh
+run_scheduler.bat (Windows)
 ```
 
 This launches multiple co-location cases (game + LLM).
@@ -176,7 +176,7 @@ Users must change:
 
 # Final Reminder for Users
 
-The `.sh` scripts provided in the repository **are not plug-and-play**.
+The `.sh` (Linux) and `.bat` (Windows) scripts provided in the repository **are not plug-and-play**.
 They serve as **templates** that demonstrate the **correct sequence of steps**, but users **must manually adjust**:
 
 * filesystem paths
