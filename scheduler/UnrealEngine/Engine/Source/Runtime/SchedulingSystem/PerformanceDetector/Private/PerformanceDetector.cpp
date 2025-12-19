@@ -215,22 +215,22 @@ double FPerformanceDetector::UpdateAllStallTimePrefillingUsed()
 double FPerformanceDetector::PredictNextStallTimeWindow()
 {
 	//rural
-	//std::vector<double> Weights = {1.469337, -0.28733, -0.22863, 8.787756}; //注意权重倒序存放, weights={w3,w2,w1,d} scene3-200apm
-	//std::vector<double> Weights = {1.404611, -0.20713, -0.24817, 6.368396}; //注意权重倒序存放, weights={w3,w2,w1,d} scene3-300apm
+	//std::vector<double> Weights = {1.469337, -0.28733, -0.22863, 8.787756}; // weights={w3,w2,w1,d} scene3-200apm
+	//std::vector<double> Weights = {1.404611, -0.20713, -0.24817, 6.368396}; // weights={w3,w2,w1,d} scene3-300apm
 
-	//std::vector<double> Weights = {1.108417, -0.11725, -0.0443, 8.51669}; //注意权重倒序存放, weights={w3,w2,w1,d} scene1-200apm
-	//std::vector<double> Weights = {1.171115, -0.07491, -0.19473, 10.52871}; //注意权重倒序存放, weights={w3,w2,w1,d} scene1-300apm
+	//std::vector<double> Weights = {1.108417, -0.11725, -0.0443, 8.51669}; // weights={w3,w2,w1,d} scene1-200apm
+	//std::vector<double> Weights = {1.171115, -0.07491, -0.19473, 10.52871}; // weights={w3,w2,w1,d} scene1-300apm
 	
-	//std::vector<double> Weights = {1.451419, -0.24936, -0.25198, 8.69996}; //注意权重倒序存放, weights={w3,w2,w1,d} scene2-200apm
-	//std::vector<double> Weights = {1.416931, -0.22387, -0.25057, 6.681748}; //注意权重倒序存放, weights={w3,w2,w1,d} scene2-300apm
+	//std::vector<double> Weights = {1.451419, -0.24936, -0.25198, 8.69996}; // weights={w3,w2,w1,d} scene2-200apm
+	//std::vector<double> Weights = {1.416931, -0.22387, -0.25057, 6.681748}; // weights={w3,w2,w1,d} scene2-300apm
 
 
 	//watermills
-	//std::vector<double> Weights = {0.928304, 0.00629, -0.08938, 18.14008}; //注意权重倒序存放, weights={w3,w2,w1,d} scene3-200apm
-	std::vector<double> Weights = {0.873371, 0.119535, -0.05704, 11.27746}; //注意权重倒序存放, weights={w3,w2,w1,d} scene3-300apm
+	//std::vector<double> Weights = {0.928304, 0.00629, -0.08938, 18.14008}; // weights={w3,w2,w1,d} scene3-200apm
+	std::vector<double> Weights = {0.873371, 0.119535, -0.05704, 11.27746}; // weights={w3,w2,w1,d} scene3-300apm
 
-	//std::vector<double> Weights = {0.910026, 0.073817, -0.03962, 8.971267}; //注意权重倒序存放, weights={w3,w2,w1,d} scene2-200apm
-	//std::vector<double> Weights = {0.946492, 0.002635, -0.07186, 13.15483}; //注意权重倒序存放, weights={w3,w2,w1,d} scene2-300apm
+	//std::vector<double> Weights = {0.910026, 0.073817, -0.03962, 8.971267}; // weights={w3,w2,w1,d} scene2-200apm
+	//std::vector<double> Weights = {0.946492, 0.002635, -0.07186, 13.15483}; // weights={w3,w2,w1,d} scene2-300apm
 	
 	double Res = 0, Tmp = 0;
 	int Length = StallTimeWindowsQueue.size();

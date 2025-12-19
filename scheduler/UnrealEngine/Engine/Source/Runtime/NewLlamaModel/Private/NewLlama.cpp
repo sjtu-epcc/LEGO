@@ -171,13 +171,13 @@ void FNewLlamaModel::Inference(std::string prompt, FString* content, int time_pe
 
 		double StallTimeForAction = 0;
 		
-		/*if (action >= 3 && CheckAutoUpdateSkipLayers())
+		if (action >= 3 && CheckAutoUpdateSkipLayers())
 		{
 			StallTimeForAction = FPerformanceDetector::GetInstance().PredictNextStallTimeWindow();
 			std::ofstream("debug.txt", std::ios::app) << " StallTimeForAction: " << StallTimeForAction << std::endl;
 			FTaskScheduler::GetInstance().UpdateSkipDepthAfterPrefilling(StallTimeForAction, decode_time_per_layer, decode_time_per_token, prefill_time_per_layer, prefill_time_per_token);
 		}
-		int skip_layers = 0;*/
+		int skip_layers = 0;
 
 		FTaskDetector::GetInstance().SetIsPrefilling(true);
  
