@@ -53,6 +53,8 @@ configure_scheduler.bat (Windows)
 
 This script **automates code replacement inside UE4**, but users must modify the UE4 installation path inside the script.
 
+Specifically, the scheduling logic is implemented through multi-thread coordination, which involves both the TaskScheduler thread and the RHI thread.
+
 4. To simulate game workloads:
 
 ```
